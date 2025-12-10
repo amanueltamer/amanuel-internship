@@ -1,0 +1,41 @@
+.slick-slide {
+    padding: 0 5px;
+}
+
+.slick-prev, .slick-next {
+    display: none ;
+}
+
+.custom-arrow-next, .custom-arrow-prev {
+    z-index: 10;
+}
+
+.custom-arrow-prev .MuiSvgIcon-root,
+.custom-arrow-next .MuiSvgIcon-root {
+    color: black;
+    background-color: white;
+    font-size: 45px;
+    padding: 6px;
+    border: .5px solid black;
+    border-radius: 50%;
+    z-index: 0;
+    transition: padding 0.2s ease;
+}
+
+.custom-arrow-prev .MuiSvgIcon-root:hover,
+.custom-arrow-next .MuiSvgIcon-root:hover {
+    padding: 2px;
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+}
+
+.slick-prev {
+    left: 0 !important;
+}
+
+.slick-next {
+    right: 20px !important;
+}
+
+.slick-prev::before, .slick-next::before {
+    display: none;;
+}
