@@ -7,7 +7,7 @@ import Skeleton from "../UI/Skeleton.jsx";
 const ExploreItems = () => {
   const [exploreItem, setExploreItem] = useState(null);
   const [visibleCount, setVisibleCount] = useState(8);
-  const [filterValue, setFilterValue] = useState(null);
+  const [filterValue, setFilterValue] = useState("");
 
   async function getExploreItems() {
     const apiUrl = `https://us-central1-nft-cloud-functions.cloudfunctions.net/explore?filter=${filterValue}`;
@@ -30,7 +30,6 @@ const ExploreItems = () => {
       <div>
         <select
           id="filter-items"
-          defaultValue=""
           value={filterValue}
           onChange={(e) => setFilterValue(e.target.value)}
         >
