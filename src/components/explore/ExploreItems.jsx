@@ -4,6 +4,12 @@ import { Link } from "react-router-dom";
 import Countdown from "../UI/Countdown.jsx";
 import Skeleton from "../UI/Skeleton.jsx";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init({
+  duration: 1200,
+});
+
 const ExploreItems = () => {
   const [exploreItem, setExploreItem] = useState(null);
   const [visibleCount, setVisibleCount] = useState(8);
@@ -39,11 +45,15 @@ const ExploreItems = () => {
           <option value="likes_high_to_low">Most liked</option>
         </select>
       </div>
-      {exploreItem && exploreItem.length > 0 ? 
-        exploreItem.slice(0, visibleCount).map((exploreItem) => (
+      {exploreItem && exploreItem.length > 0
+        ? exploreItem.slice(0, visibleCount).map((exploreItem) => (
             <div
               key={exploreItem.id}
               className="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12"
+              data-aos="fade-zoom-in"
+              data-aos-easing="ease-in-back"
+              data-aos-delay="0"
+              data-aos-offset="0"
               style={{ display: "block", backgroundSize: "cover" }}
             >
               <div className="nft__item">
@@ -106,6 +116,10 @@ const ExploreItems = () => {
             <div
               key={i}
               className="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12"
+              data-aos="fade-zoom-in"
+              data-aos-easing="ease-in-back"
+              data-aos-delay="0"
+              data-aos-offset="0"
               style={{ display: "block", backgroundSize: "cover" }}
             >
               <Skeleton width="100%" height="350px" borderRadius="4px" />

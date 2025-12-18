@@ -3,6 +3,12 @@ import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import Skeleton from "../UI/Skeleton.jsx";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init({
+  duration: 1200,
+});
+
 const AuthorItems = () => {
   const { authorId } = useParams();
   const [authorItem, setAuthorItem] = useState([]);
@@ -27,6 +33,10 @@ const AuthorItems = () => {
             ? authorItem.nftCollection.map((item) => (
                 <div
                   className="col-lg-3 col-md-6 col-sm-6 col-xs-12"
+                  data-aos="fade-zoom-in"
+                  data-aos-easing="ease-in-back"
+                  data-aos-delay="0"
+                  data-aos-offset="0"
                   key={item.id}
                 >
                   <div className="nft__item">
@@ -82,9 +92,13 @@ const AuthorItems = () => {
             : [...Array(8)].map((_, i) => (
                 <div
                   className="col-lg-3 col-md-6 col-sm-6 col-xs-12"
+                  data-aos="fade-zoom-in"
+                  data-aos-easing="ease-in-back"
+                  data-aos-delay="0"
+                  data-aos-offset="0"
                   key={i}
                 >
-                  <Skeleton width="100%" height="350px" borderRadius="4px"/>
+                  <Skeleton width="100%" height="350px" borderRadius="4px" />
                 </div>
               ))}
         </div>
