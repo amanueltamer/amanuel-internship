@@ -30,7 +30,7 @@ const ItemDetails = () => {
           <div className="container">
             {itemDetail && itemDetail.nftId ? (
               <div className="row">
-                <div className="col-md-6 text-center">
+                <div className="col-md-6 text-center" data-aos="fade-right">
                   <img
                     src={itemDetail.nftImage}
                     className="img-fluid img-rounded mb-sm-30 nft-image"
@@ -39,23 +39,37 @@ const ItemDetails = () => {
                 </div>
                 <div className="col-md-6">
                   <div className="item_info">
-                    <h2>
+                    <h2 data-aos="fade-left" data-aos-duration="1000">
                       {itemDetail.title} #{itemDetail.tag}
                     </h2>
 
                     <div className="item_info_counts">
-                      <div className="item_info_views">
+                      <div
+                        className="item_info_views"
+                        data-aos="fade-left"
+                        data-aos-duration="1100"
+                      >
                         <i className="fa fa-eye"></i>
                         {itemDetail.views}
                       </div>
-                      <div className="item_info_like">
+                      <div
+                        className="item_info_like"
+                        data-aos="fade-left"
+                        data-aos-duration="1200"
+                      >
                         <i className="fa fa-heart"></i>
                         {itemDetail.likes}
                       </div>
                     </div>
-                    <p>{itemDetail.description}</p>
+                    <p data-aos="fade-left" data-aos-duration="1300">
+                      {itemDetail.description}
+                    </p>
                     <div className="d-flex flex-row">
-                      <div className="mr40">
+                      <div
+                        className="mr40"
+                        data-aos="fade-left"
+                        data-aos-duration="1400"
+                      >
                         <h6>Owner</h6>
                         <div className="item_author">
                           <div className="author_list_pp">
@@ -110,19 +124,27 @@ const ItemDetails = () => {
               </div>
             ) : (
               <div className="row">
-                <div className="col-md-6 text-center">
+                <div className="col-md-6 text-center" data-aos="fade-right">
                   <Skeleton width="630px" height="500px" borderRadius="3px" />
                 </div>
                 <div className="col-md-6">
-                  <div className="item_info">
+                  <div
+                    className="item_info"
+                    data-aos="fade-left"
+                    data-aos-duration="1000"
+                  >
                     <Skeleton width="616px" height="40px" borderRadius="3px" />
 
-                    <div className="item_info_counts">
+                    <div
+                      className="item_info_counts"
+                      data-aos="fade-left"
+                      data-aos-duration="1100"
+                    >
                       <Skeleton width="80px" height="30px" borderRadius="3px" />
 
                       <Skeleton width="80px" height="30px" borderRadius="3px" />
                     </div>
-                    <p>
+                    <p data-aos="fade-left" data-aos-duration="1300">
                       <Skeleton
                         width="616px"
                         height="80px"

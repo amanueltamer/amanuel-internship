@@ -1,16 +1,22 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import "../../css/HotCollections.css"
+import "../../css/HotCollections.css";
 
-import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import Skeleton from "../UI/Skeleton.jsx"
+import Skeleton from "../UI/Skeleton.jsx";
+
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init({
+  duration: 1500,
+});
 
 const HotCollections = () => {
   const [hotCollections, setHotCollections] = useState(null);
@@ -31,7 +37,7 @@ const HotCollections = () => {
     <div className={`${className} custom-arrow-prev`} onClick={onClick}>
       <KeyboardArrowLeftIcon />
     </div>
-  )
+  );
 
   const NextArrow = ({ className, onClick }) => (
     <div className={`${className} custom-arrow-next`} onClick={onClick}>
@@ -80,7 +86,13 @@ const HotCollections = () => {
 
   return (
     <section id="section-collections" className="no-bottom">
-      <div className="container">
+      <div
+        className="container"
+        data-aos="fade-zoom-in"
+        data-aos-easing="ease-in-back"
+        data-aos-delay="0"
+        data-aos-offset="0"
+      >
         <div className="row">
           <div className="col-lg-12">
             <div className="text-center">
@@ -90,10 +102,8 @@ const HotCollections = () => {
           </div>
           {hotCollections && hotCollections.length > 0 ? (
             <Slider {...settings}>
-            {hotCollections.map((hc) => (
-                <div
-                  key={hc.id}
-                >
+              {hotCollections.map((hc) => (
+                <div key={hc.id}>
                   <div className="nft_coll">
                     <div className="nft_wrap">
                       <Link to={`item-details/${hc.nftId}`}>
@@ -122,16 +132,16 @@ const HotCollections = () => {
                     </div>
                   </div>
                 </div>
-            ))}
-          </Slider>
+              ))}
+            </Slider>
           ) : (
             <div className="row">
-            {[...Array(4)].map((_, i) => (
-              <div key={i} className="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                <Skeleton width="100%" height="300px" borderRadius="4px" />
-              </div>
-            ))}
-          </div>
+              {[...Array(4)].map((_, i) => (
+                <div key={i} className="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                  <Skeleton width="100%" height="300px" borderRadius="4px" />
+                </div>
+              ))}
+            </div>
           )}
         </div>
       </div>
